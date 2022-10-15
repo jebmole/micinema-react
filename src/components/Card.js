@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Card({ movie }) {
 
-  console.log(movie);  
   return (
     <div className="card" style={{ width: "18rem", marginRight:"10px", marginBottom: "20px" }}>
       <img
@@ -19,9 +19,9 @@ function Card({ movie }) {
         </div>
 
         <div style={{ marginTop: "20px"}}>
-            <a href="#" className="btn btn-primary">
-            Ver detalles
-            </a>
+            <Link to={`/peliculas/${movie.id}`} className="btn btn-primary">
+              Ver detalles
+            </Link>
         </div>
 
       </div>

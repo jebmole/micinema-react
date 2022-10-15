@@ -1,36 +1,27 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Carousel from "./components/Carousel";
-import ListadoPeliculas from "./components/ListadoPeliculas";
 import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import SalaPage from "./pages/SalaPage";
+import FuncionPage from "./pages/FuncionPage";
+import PeliculaPage from "./pages/PeliculaPage";
+import ClientePage from "./pages/ClientePage";
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DetallePeliculaPage from "./pages/DetallePeliculaPage";
 
 function App() {
-
-  const [recentMovies, setRecentMovies] = useState([]);
-
-  useEffect(()=>{
-
-    const getMoviesAsync = async () => {
-    
-      const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=a6db559033af943be136a2110dbd4b5f&language=es-CO", {
-        method: "GET",
-      });
-  
-      const jsonData = await response.json();
-      setRecentMovies(jsonData.results);
-    }
-
-    //Este codigo se ejecuta cada vez que se renderiza el componente
-    getMoviesAsync();
-
-  }, [])
-
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <Carousel movies={recentMovies.slice(0, 3)} />
-      <ListadoPeliculas movies={recentMovies} />
-    </div>
+      <Routes>
+        <Route path="/home" element={ <HomePage /> } />
+        <Route path="/salas" element={ <SalaPage /> } />
+        <Route path="/peliculas" element={ <PeliculaPage /> } />
+        <Route path="/peliculas/:movieId" element={ <DetallePeliculaPage /> } />
+        <Route path="/clientes" element={ <ClientePage /> } />
+        <Route path="/funciones" element={ <FuncionPage /> } />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

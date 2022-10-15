@@ -66,3 +66,14 @@
 {
   height: 100%;
 }
+
+.contenido {
+  display: flex;
+  height: 500px;
+  width: 50%;
+  flex-direction: column;
+
+}
+.contenido img{
+  height: 100%;
+}
