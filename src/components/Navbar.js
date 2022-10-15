@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -24,19 +26,19 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <NavLink to="/home" className={({isActive}) => isActive ? "nav-link active" : "nav-link" }>
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink to="/clientes" className={({isActive}) => isActive ? "nav-link active" : "nav-link" }>
                 Clientes
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink to="/salas" className={({isActive}) => isActive ? "nav-link active" : "nav-link" }>
                 Salas
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">

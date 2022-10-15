@@ -5,7 +5,7 @@ function Carousel({ movies }) {
     <div
       id="carouselExampleCaptions"
       className="carousel slide"
-      data-bs-ride="carousel"
+      data-bs-ride="false"
     >
       <div className="carousel-indicators">
         {movies.map((movie, index) => {

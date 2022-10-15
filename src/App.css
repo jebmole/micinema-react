@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.myCarrousel
+{
+  display: flex;
+  justify-content: center;
+}
+
+.carousel
+{
+  width: 1200px;
+}
+
+.carousel-item
+{
+  height: 500px;
+}
+
+.carousel-item img
+{
+  height: 100%;
+}
