@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Carousel from "./components/Carousel";
+import ListadoPeliculas from "./components/ListadoPeliculas";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <div>
       <Navbar />
       <Carousel movies={recentMovies.slice(0, 3)} />
+      <ListadoPeliculas movies={recentMovies} />
     </div>
   );
 }

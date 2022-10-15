@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.card-text
+{
+  display: block;
+}
+
+.tarjetas{
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.carousel
+{
+  height: 500px;
+}
+
+.carousel-inner
+{
+  height: 100%;
+}
+
+.carousel-item
+{
+  height: 100%;
+}
+
+.carousel-item img
+{
+  height: 100%;
+}
