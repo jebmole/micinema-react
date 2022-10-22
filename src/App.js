@@ -8,6 +8,7 @@ import ClientePage from "./pages/ClientePage";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DetallePeliculaPage from "./pages/DetallePeliculaPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/peliculas/:movieId" element={ <DetallePeliculaPage /> } />
         <Route path="/clientes" element={ <ClientePage /> } />
         <Route path="/funciones" element={ <FuncionPage /> } />
+        <Route path="/login" element={ <LoginPage /> } />
       </Routes>
     </BrowserRouter>
   );

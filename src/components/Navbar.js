@@ -1,6 +1,37 @@
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
+  const [estaLogueado, setEstaLogueado] = useState(true);
+  
+  useEffect(()=> {
+
+    const login = async() =>{
+
+      const credenciales = {
+        "usuario": "alejandro",
+        "password": "12433"
+      };
+
+      //Se invoca el api de login
+       const response = await fetch("https://apicinema.azurewebsites.net/api/token", {
+        method: "POST",
+        body: JSON.stringify(credenciales),
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      });
+
+      const responseJson = await response.json();
+      console.log(responseJson);
+      setEstaLogueado(responseJson?.token ? true : false);
+    }
+    
+    login();
+
+  }, [])
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div className="container-fluid">
@@ -35,16 +66,22 @@ function Navbar() {
                 Clientes
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/salas">
-                Salas
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/peliculas">
-                Peliculas
-              </NavLink>
-            </li>
+            {estaLogueado ? (
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/salas">
+                    Salas
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/peliculas">
+                    Peliculas
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
             <li className="nav-item">
               <NavLink className="nav-link" to="/funciones">
                 Funciones
@@ -52,9 +89,9 @@ function Navbar() {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <button className="btn btn-outline-success" type="submit">
-              Log In
-            </button>
+            <NavLink className="btn btn-outline-success" to="/login">
+              Log in
+            </NavLink>
           </form>
         </div>
       </div>
