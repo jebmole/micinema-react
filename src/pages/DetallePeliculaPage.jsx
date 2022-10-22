@@ -36,7 +36,7 @@ function DetallePeliculaPage() {
     //Este codigo se ejecuta cada vez que se renderiza el componente
     getMovieByIdAsync();
     //getMovieVideoByIdAsync();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>

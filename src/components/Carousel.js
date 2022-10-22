@@ -1,5 +1,3 @@
-import imagen1 from "../images/imagen1.png";
-
 function Carousel({ movies }) {
   return (
     <div
